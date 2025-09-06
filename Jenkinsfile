@@ -35,7 +35,13 @@ pipeline {
 
         stage('将自定义镜像推送到Harbor') {
             steps {
-                echo '将自定义镜像推送到Harbor - SUCCESS'
+               steps {
+    sh '''
+        docker login -u xujinlei008 -p xujinlei788273
+        docker tag ${JOB_NAME}:${tag} xujinlei008/${JOB_NAME}:${tag}
+        docker push xujinlei008/${JOB_NAME}:${tag}
+    '''
+}
             }
         }
 
