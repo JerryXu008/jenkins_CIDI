@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('拉取git仓库代码') {
             steps {
-                echo '拉取git仓库代码 - SUCCESS'
+               checkout scmGit(branches: [[name: '${tag}']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/JerryXu008/jenkins_CIDI.git']])
             }
         }
 
