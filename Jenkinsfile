@@ -37,7 +37,7 @@ pipeline {
             steps {
                 
     sh '''
-        docker login -u xujinlei008 -p xujinlei788273
+        docker login -u xujinlei008 -p xujinlei7882273
         docker tag ${JOB_NAME}:${tag} xujinlei008/${JOB_NAME}:${tag}
         docker push xujinlei008/${JOB_NAME}:${tag}
     '''
