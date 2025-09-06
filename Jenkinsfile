@@ -47,7 +47,7 @@ pipeline {
 
         stage('通过Publish Over SSH通知目标服务器') {
             steps {
-                echo '通过Publish Over SSH通知目标服务器 - SUCCESS'
+              sshPublisher(publishers: [sshPublisherDesc(configName: 'ssh-helper', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'deploy.sh xujinlei008 ${JOB_NAME} $tag 8090', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
     }
