@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     @GetMapping("/hello")
     public String test(){
-        return "hello,jenkins";
+        return "hello,jenkins --version：V5.0.0.0";
 
     }
 }
