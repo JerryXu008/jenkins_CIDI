@@ -54,5 +54,18 @@ pipeline {
                 sshPublisher(publishers: [sshPublisherDesc(configName: 'k8s-helper', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'pipeline.yml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
+stage('远程调用k8s yml'){  
+        steps {
+                 sh '''
+                    ssh root@192.168.1.102 "kubectl apply -f /root/pipeline.yml"
+                '''
+                 
+        }
+        }
+
+
+
+
+        
     }
 }
