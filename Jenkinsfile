@@ -57,7 +57,7 @@ pipeline {
 stage('远程调用k8s yml'){  
         steps {
                  sh '''
-                    ssh root@192.168.1.102 "kubectl apply -f /root/pipeline.yml"
+                    ssh root@192.168.1.102 "kubectl apply -f /usr/local/k8s/pipeline.yml"
                 '''
                  
         }
