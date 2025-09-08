@@ -70,7 +70,7 @@ pipeline {
             steps {
                 sh '''
                     ssh root@192.168.1.102 "kubectl apply -f /usr/local/k8s/pipeline.yml"
-                    ssh root@192.168.11.201 "kubectl rollout restart deployment pipeline -n test"
+                    ssh root@192.168.1.102 "kubectl rollout restart deployment pipeline -n test"
                 '''
             }
         }
