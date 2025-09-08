@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: pipeline
-        image: xujinlei008/pipeline:v3.0.0.0
+        image: xujinlei008/pipeline:v5.0.0.0
         imagePullPolicy: Always
         ports:
         - containerPort: 8090
