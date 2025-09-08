@@ -47,7 +47,10 @@ pipeline {
 
         stage('通过Publish Over SSH通知目标服务器') {
             steps {
-              sshPublisher(publishers: [sshPublisherDesc(configName: 'ssh-helper', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: "deploy.sh xujinlei008 ${JOB_NAME} $tag 8090", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                 //这是docker 构建方式
+                // sshPublisher(publishers: [sshPublisherDesc(configName: 'ssh-helper', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: "deploy.sh xujinlei008 ${JOB_NAME} $tag 8090", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                //这是k8s构建方式
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'k8s-helper', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'pipeline.yml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
     }
