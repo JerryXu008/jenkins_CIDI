@@ -8,6 +8,6 @@ public class TestController {
    @GetMapping("/hello")
     public  String test(){
 
-       return "AAAAAAAAAhello ,jenkins-latest！！！！！";
+       return "滚动更新  AAAAAAAAAhello ,jenkins-latest！！！！！";
    }
 }
